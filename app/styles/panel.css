@@ -1,0 +1,10 @@
+.callout-info {
+    border-color: #bce8f1;
+    background-color: #f4f8fa;
+}
+
+.callout {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 4px solid #eee;
+}

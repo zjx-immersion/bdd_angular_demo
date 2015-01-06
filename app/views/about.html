@@ -1,0 +1,108 @@
+<h3 name="aboutTittle">Client List</h3>
+<div>
+
+    <table ng-table="tableParams"  show-filter="true" class="table ng-table-rowselected">
+        <tr ng-repeat="user in $data" name="clientrow"
+            ng-click="changeSelection(user)"
+            ng-class="{'active': user.$selected}">
+            <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">
+                {{user.name}}
+            </td>
+            <td data-title="'Age'" sortable="'age'" filter="{ 'age': 'text' }">
+                {{user.age}}
+            </td>
+            <td data-title="'Sex'" sortable="'sex'" filter="{ 'sex': 'text' }">
+                {{user.sex}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Create Item!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a style="cursor: default" ng-click="selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="createItem.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Create Item!</h3>
+        </div>
+        <div class="modal-body" ngFocus>
+            <form class="form-horizontal" name="signup_form"  ng-submit="ok(signup_form.$valid)"  novalidate>
+                <fieldset>
+                    <div class="form-group">
+
+                        <!-- Text input-->
+                        <label class="control-label  col-xs-2">Name</label>
+                        <div class="col-xs-10">
+                            <input name="username"  autofocus="true" type="text" ng-model="user.name" ng-minlength=3
+                                   ng-maxlength=20  required placeholder="input your name" class="form-control">
+                            <p ng-show="submitted&&signup_form.username.$error.required" class="help-block">Should input one.</p>
+                            <p ng-show="signup_form.username.$error.minlength" class="help-block">Username is too short.</p>
+                            <p ng-show="signup_form.username.$error.maxlength" class="help-block">Username is too long.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <!-- Text input-->
+                        <label class="control-label  col-xs-2">Age</label>
+                        <div class="col-xs-10">
+                                <input name="age" type="number" ng-model="user.age" required placeholder="input your age" ng-minlength=1
+                                   ng-maxlength=3  class="form-control">
+                            <p ng-show="submitted&&signup_form.age.$error.required" class="help-block">Should input one.</p>
+                            <p ng-show="signup_form.age.$error.minlength" class="help-block">age is too short.</p>
+                            <p ng-show="signup_form.age.$error.maxlength" class="help-block">age is too long.</p>
+                            <p ng-show="signup_form.age.$error.number" class="help-block">age is number.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <!-- Text input-->
+                        <label class="control-label  col-xs-2">Sex</label>
+                        <div class="col-xs-10">
+                            <select name="sex" ng-model="user.sex" required class="form-control"
+                                    ng-options="sexEnum.ID as sexEnum.Sex for sexEnum in sexEnums">
+                                <option value="">Select your Sex</option>
+                            </select>
+                            <p ng-show="submitted&&signup_form.sex.$error.required" class="help-block">Should select one.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input name="addok" type="submit" value="OK" class="btn btn-primary">
+                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+    </script>
+
+
+<div class="callout callout-info">
+    <button class="btn btn-primary" ng-click="open()">Open me!</button>
+    <button name="additembutton" class="btn btn-primary" ng-click="openCreate()">Add Item</button>
+    <button class="btn btn-primary" ng-click="open('sm')">Small modal</button>
+    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>
+</div>

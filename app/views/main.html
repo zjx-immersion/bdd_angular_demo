@@ -1,0 +1,30 @@
+<div>
+    <h3 name="homeTitle">My todos</h3>
+
+    <!-- Todos input -->
+    <div class="alter-panel" style="z-index: 100">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
+
+    <form role="form"  ng-submit="addTodo()">
+        <div class="row">
+            <div class="input-group">
+                <input name="todoText" type="text" ng-model="todo" placeholder="What needs to be done?" class="form-control" required>
+             <span class="input-group-btn">
+              <input type="submit" value="Add" class="btn btn-primary">
+             </span>
+            </div>
+        </div>
+    </form>
+    <p></p>
+
+    <!-- Todos list -->
+    <div ui-sortable ng-model="todos">
+        <p class="input-group" ng-repeat="todo in todos track by $index" style="padding:5px 10px; cursor: move;">
+            <input type="text" ng-model="todo" class="form-control">
+            <span class="input-group-btn">
+                <button name="delete" class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+            </span>
+        </p>
+    </div>
+</div>

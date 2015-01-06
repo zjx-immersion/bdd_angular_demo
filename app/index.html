@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>BDD-TestExample</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+      <link href="styles/style.css" rel="stylesheet" type="text/css" />
+      <link href="styles/panel.css" rel="stylesheet" type="text/css" />
+      <link href="styles/alter.css" rel="stylesheet" type="text/css" />
+      <link href="styles/viewstyle/login.css" rel="stylesheet" type="text/css" />
+      <link href="styles/viewstyle/about.css" rel="stylesheet" type="text/css" />
+      <link href="bower_components/ng-table/ng-table.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body ng-app="bddTestExampleApp">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container-header" ng-controller="MyCtrl">
+        <div class="container-header-layout">
+            <div class="container-header-layout-left">
+                <h3 class="text-muted" >BDD-TestExample</h3>
+            </div>
+            <div style="float: right; width: 800px;height: 60px; padding-top: 10px;">
+                <ul class="nav nav-pills pull-right" >
+                    <li ng-class="{active:isActive('/home')}"><a href="#/home">Home</a></li>
+                    <li ng-class="{active:isActive('/about')}"><a  href="#/about">AboutMenu</a></li>
+                    <li ng-class="{active:isActive('/slider1')}"><a href="#/slider1">SliderOne</a></li>
+                    <li ng-class="{active:isActive('/slider2')}"><a href="#/slider2">SliderTwo</a></li>
+                    <li ng-controller="LoginCtrl"><a href="#" ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <!--<div-->
+                <!--ng-class="{'button': !isActive, 'button active': isActive}"-->
+                <!--ng-init="isActive = false"-->
+                <!--ng-click="isActive = !isActive">-->
+           <!--Click Me-->
+        <!--</div>-->
+      <div class="page-partview"  ng-view=""></div>
+
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ng-table/ng-table.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/index.js"></script>
+        <script src="scripts/controllers/slider-one.js"></script>
+        <script src="scripts/controllers/slider-two.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+
+        <!-- endbuild -->
+</body>
+</html>
